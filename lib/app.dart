@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'core/theming/app_sizer.dart';
 import 'core/theming/app_theme.dart';
-import 'core/widgets/app_text.dart';
+import 'features/search/ui/search_screen.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -27,10 +27,7 @@ class _MaterialAppWidget extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'GitHub Search',
       theme: AppTheme.dark,
-      home: Scaffold(
-        appBar: AppBar(),
-        body: const Center(child: AppText('Hello, World!')),
-      ),
+      home: const SearchScreen(),
     );
   }
 }
