@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
+import '../../../../core/theming/app_colors.dart';
+import '../../data/models/github_user_model.dart';
 import '../../logic/search_cubit.dart';
 import 'github_user_card.dart';
 
@@ -13,14 +16,23 @@ class FetchedUsersTile extends StatelessWidget {
       builder: (context, state) {
         switch (state) {
           case SearchLoading():
-            return const Center(child: CircularProgressIndicator());
+            return ListView.builder(
+              itemCount: 10,
+              itemBuilder: (context, index) {
+                return Skeletonizer(
+                  effect: ShimmerEffect(
+                    baseColor: AppColors.backgroundWithOpacity,
+                    highlightColor: AppColors.shimmerHighlight,
+                  ),
+                  child: const GithubUserCard(user: GithubUserModel.skeleton),
+                );
+              },
+            );
           case SearchSuccess():
             return ListView.builder(
-              shrinkWrap: true,
               itemCount: state.data.length,
               itemBuilder: (context, index) {
-                final user = state.data[index];
-                return GithubUserCard(user: user);
+                return GithubUserCard(user: state.data[index]);
               },
             );
 

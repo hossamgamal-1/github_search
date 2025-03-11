@@ -18,4 +18,12 @@ class GithubUserModel {
       userPageUrl: json['html_url'],
     );
   }
+
+  static const skeleton = GithubUserModel(
+    id: 1234,
+    userName: 'userName',
+    avatarUrl:
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHZqj-XReJ2R76nji51cZl4ETk6-eHRmZBRw&s',
+    userPageUrl: '',
+  );
 }

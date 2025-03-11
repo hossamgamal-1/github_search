@@ -12,18 +12,17 @@ class GithubUserCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 4),
-      // padding: const EdgeInsets.symmetric(vertical: 8),
       decoration: BoxDecoration(
         border: Border.all(color: AppColors.grey),
         borderRadius: BorderRadius.circular(16),
       ),
-      // color: AppColors.foreground,
       child: DefaultTextStyle(
         style: const TextStyle(fontSize: 22),
         child: ListTile(
-          tileColor: Colors.black,
+          tileColor: AppColors.backgroundWithOpacity,
           textColor: AppColors.foreground,
           leading: CircleAvatar(
+            backgroundColor: AppColors.grey,
             backgroundImage: CachedNetworkImageProvider(user.avatarUrl),
           ),
           title: Text(user.userName),
