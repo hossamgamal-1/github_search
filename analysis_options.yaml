@@ -1,0 +1,10 @@
+include: package:flutter_lints/flutter.yaml
+
+linter:
+  rules:
+    file_names: true
+    prefer_relative_imports: true
+    camel_case_types: true
+    prefer_const_constructors: true
+    prefer_const_constructors_in_immutables: true
+    always_declare_return_types: true
