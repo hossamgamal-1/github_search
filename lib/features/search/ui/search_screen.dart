@@ -16,9 +16,9 @@ class SearchScreen extends StatelessWidget {
       child: Builder(
         builder: (context) {
           return Scaffold(
-            appBar: AppBar(title: const Text('Search')),
+            appBar: AppBar(title: const Text('Github Search')),
             body: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8),
+              padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Column(
                 spacing: 10,
                 children: [
