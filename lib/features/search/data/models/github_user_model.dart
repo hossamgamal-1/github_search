@@ -19,6 +19,15 @@ class GithubUserModel {
     );
   }
 
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'login': userName,
+      'avatar_url': avatarUrl,
+      'html_url': userPageUrl,
+    };
+  }
+
   static const skeleton = GithubUserModel(
     id: 1234,
     userName: 'userName',

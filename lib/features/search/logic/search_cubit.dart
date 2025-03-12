@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 // import 'package:flutter_debouncer/flutter_debouncer.dart';
 
 import '../../../core/networking/result_or_failure.dart';
-import '../data/models/github_user_model.dart';
+import '../data/models/detailed_github_user_model.dart';
 import '../data/repo/search_repo.dart';
 
 part 'search_state.dart';

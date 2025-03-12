@@ -26,7 +26,21 @@ class DioFactory {
                 responseBody: true,
                 error: true,
               ),
+            _getAuthorizationInterceptor(),
           ]);
     return _dio!;
+  }
+
+  static InterceptorsWrapper _getAuthorizationInterceptor() {
+    return InterceptorsWrapper(
+      onRequest: (options, handler) {
+        options.headers.addAll({
+          if (ApiConstants.apiKey != null)
+            'Authorization': 'Bearer ${ApiConstants.apiKey}',
+        });
+
+        return handler.next(options);
+      },
+    );
   }
 }
