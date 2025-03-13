@@ -6,14 +6,19 @@ import '../../data/models/detailed_github_user_model.dart';
 
 class GithubUserCard extends StatelessWidget {
   final DetailedGithubUserModel user;
-  const GithubUserCard({super.key, required this.user});
+  final bool isActivate;
+  const GithubUserCard({
+    super.key,
+    required this.user,
+    required this.isActivate,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 4),
       decoration: BoxDecoration(
-        border: Border.all(color: AppColors.grey),
+        border: Border.all(color: isActivate ? AppColors.blue : AppColors.grey),
         borderRadius: BorderRadius.circular(16),
       ),
       child: ListTile(
@@ -31,27 +36,33 @@ class GithubUserCard extends StatelessWidget {
           backgroundColor: AppColors.grey,
           backgroundImage: CachedNetworkImageProvider(user.avatarUrl),
         ),
-        trailing: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'Public Repos: ${user.publicRepos}',
-              style: TextStyle(
-                color: user.hasManyRepos ? Colors.green : AppColors.foreground,
-              ),
-            ),
-            Text(
-              'lastActive: ${user.lastActive}',
-              style: TextStyle(
-                color:
-                    user.hasUpdatedRecently
-                        ? AppColors.green
-                        : AppColors.foreground,
-              ),
-            ),
-          ],
-        ),
+        trailing: _getTrailingWidget(),
       ),
+    );
+  }
+
+  Widget? _getTrailingWidget() {
+    if (!isActivate) return null;
+
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          'Public Repos: ${user.publicRepos}',
+          style: TextStyle(
+            color: user.hasManyRepos ? Colors.green : AppColors.foreground,
+          ),
+        ),
+        Text(
+          'lastActive: ${user.lastActive}',
+          style: TextStyle(
+            color:
+                user.hasUpdatedRecently
+                    ? AppColors.green
+                    : AppColors.foreground,
+          ),
+        ),
+      ],
     );
   }
 }

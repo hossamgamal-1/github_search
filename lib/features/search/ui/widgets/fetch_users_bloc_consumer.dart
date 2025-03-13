@@ -11,9 +11,10 @@ import '../../data/models/detailed_github_user_model.dart';
 import '../../logic/search_cubit.dart';
 import 'github_icon.dart';
 import 'github_user_card.dart';
+import 'users_tile.dart';
 
-class FetchedUsersTile extends StatelessWidget {
-  const FetchedUsersTile({super.key});
+class FetchUsersBlocConsumer extends StatelessWidget {
+  const FetchUsersBlocConsumer({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +44,10 @@ class FetchedUsersTile extends StatelessWidget {
                     baseColor: AppColors.backgroundWithOpacity,
                     highlightColor: AppColors.shimmerHighlight,
                   ),
-                  child: GithubUserCard(user: DetailedGithubUserModel.skeleton),
+                  child: GithubUserCard(
+                    user: DetailedGithubUserModel.skeleton,
+                    isActivate: false,
+                  ),
                 );
               },
             );
@@ -68,12 +72,7 @@ class FetchedUsersTile extends StatelessWidget {
               );
             }
 
-            return ListView.builder(
-              itemCount: state.data.length,
-              itemBuilder: (context, index) {
-                return GithubUserCard(user: state.data[index]);
-              },
-            );
+            return UsersTile(users: state.data);
 
           case SearchError():
           case SearchInitial():

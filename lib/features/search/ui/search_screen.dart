@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../core/di/dependency_injection.dart';
 import '../../../core/theming/app_sizer.dart';
 import '../logic/search_cubit.dart';
-import 'widgets/fetched_users_tile.dart';
+import 'widgets/fetch_users_bloc_consumer.dart';
 import 'widgets/search_text_form_field.dart';
 
 class SearchScreen extends StatelessWidget {
@@ -37,7 +37,7 @@ class SearchScreen extends StatelessWidget {
                             },
                           ),
 
-                          const Expanded(child: FetchedUsersTile()),
+                          const Expanded(child: FetchUsersBlocConsumer()),
                         ],
                       ),
                     ),
