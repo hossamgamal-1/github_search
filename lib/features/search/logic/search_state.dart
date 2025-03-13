@@ -19,7 +19,7 @@ class SearchError extends SearchState {
 }
 
 class SearchSuccess extends SearchState {
-  final List<GithubUserModel> data;
+  final List<DetailedGithubUserModel> data;
 
   const SearchSuccess(this.data);
 }

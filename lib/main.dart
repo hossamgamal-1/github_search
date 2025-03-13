@@ -6,7 +6,8 @@ import 'core/theming/app_sizer.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await setupGetIt();
-  await AppSizer.ensureScreenSize();
+
+  await Future.wait([setupGetIt(), AppSizer.ensureScreenSize()]);
+
   runApp(const App());
 }

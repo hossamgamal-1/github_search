@@ -12,10 +12,12 @@ class SearchRemoteDataSource {
     final response = await _apiHelper.getData(
       ApiRequestModel(
         endPoint: ApiConstants.fetchUsersEP,
-        queries: {'q': userName},
+        queries: {'q': userName, 'per_page': 10},
       ),
     );
+
     final items = response.data['items'] as List? ?? [];
+
     return items.map((json) => GithubUserModel.fromJson(json)).toList();
   }
 
