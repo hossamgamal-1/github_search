@@ -1,7 +1,7 @@
 # Github Search App
 
-## API RATE LIMIT Note
-### In Case of a real world application in addition to debouncing, caching, and API optimization GitHub requests can be authenticated using github API KEY to enjoy +5000 request per hour instead of 60 request per hour for unauthenticated requests
+## API rate limit note
+### In case of a real world application in addition to debouncing, caching, and API optimization GitHub requests can be authenticated using GitHub API KEY to enjoy +5000 request per hour instead of 60 request per hour for unauthenticated requests
 
 ## Assumptions Made
 ### 6 months = 180 days
