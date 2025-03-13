@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 import '../../../../core/theming/app_colors.dart';
 import '../../data/models/detailed_github_user_model.dart';
@@ -50,17 +51,23 @@ class _UsersTileState extends State<UsersTile> {
         child: ListView.builder(
           itemCount: widget.users.length,
           itemBuilder: (context, index) {
+            final user = widget.users[index];
             return InkWell(
               highlightColor: AppColors.transparent,
               splashColor: AppColors.transparent,
               hoverColor: AppColors.transparent,
-              key: ValueKey(widget.users[index].id),
+              key: ValueKey(user.id),
               onTap: () {
                 _focusNode.requestFocus();
-                setState(() => _currentIndex = index);
+                final isChosen = index == _currentIndex;
+                if (isChosen) {
+                  launchUrlString(user.userPageUrl);
+                } else {
+                  setState(() => _currentIndex = index);
+                }
               },
               child: GithubUserCard(
-                user: widget.users[index],
+                user: user,
                 isActivate: index == _currentIndex,
               ),
             );
