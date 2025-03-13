@@ -19,9 +19,9 @@ class SearchTextField extends StatelessWidget {
         onTapOutside: (_) => FocusManager.instance.primaryFocus?.unfocus(),
         decoration: InputDecoration(
           isDense: true,
-          contentPadding: EdgeInsets.symmetric(
-            horizontal: 15.w,
-            vertical: 20.h,
+          contentPadding: const EdgeInsets.symmetric(
+            vertical: 20,
+            horizontal: 15,
           ),
           focusedBorder: _getOutlinedBorder(AppColors.blue),
           enabledBorder: _getOutlinedBorder(AppColors.grey),
