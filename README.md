@@ -41,3 +41,7 @@ flutter run
 | Landing Screen | Search |
 |------------|-----------|
 | ![Landing Screen](assets/screenshots/landing.png) | ![Search](assets/screenshots/search.png) |
+
+## 🎥 Video [Watch Demo Video]
+
+https://github.com/user-attachments/assets/edc227af-30f0-4a5a-9a4a-af18fc45de07
